@@ -5,11 +5,8 @@ from tqdm.auto import tqdm
 
 from src.model.memory_utils import cleanup
 
-curdir = os.path.dirname(os.path.realpaith("__file__"))
 from UniEval.metric.evaluator import get_evaluator
 from UniEval.utils import convert_to_json
-
-os.chdir("./.")
 
 os.chdir(curdir)
 
