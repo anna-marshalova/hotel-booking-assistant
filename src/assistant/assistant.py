@@ -21,14 +21,14 @@ class Assistant:
     def get_system_bot_message(self, slots, hotels_in_city):
         sys_message = load_json(SYSTEM_PROMPTS_PATH / "inference_prompts.json")["bot"]
         date_status = get_date_status(self.today)
-        slot_status = get_slot_status(self.slots)
+        slot_status = get_slot_status(slots)
         availbale_hotels = get_availbale_hotels(slots, hotels_in_city)
         return f"{sys_message}\n{date_status}\n{slot_status}\n{availbale_hotels}"
 
     def get_system_slot_message(self, slots):
         sys_message = load_json(SYSTEM_PROMPTS_PATH / "inference_prompts.json")["slot"]
         date_status = get_date_status(self.today)
-        slot_status = get_slot_status(self.slots)
+        slot_status = get_slot_status(slots)
         return f"{sys_message}\n{date_status}\n{slot_status}"
 
     def run(self, show_slots=True):
