@@ -1,0 +1,21 @@
+[
+    "Great news! I've booked your stay at {hotel_name} in {city}. Your reservation is from {start_date} to {end_date}, and the total price is {total_price}. Enjoy your trip!",
+
+    "Booking confirmed! You're all set at {hotel_name}, {city}. Check-in is on {start_date}, check-out on {end_date}. The total cost is {total_price}. Have a wonderful stay!",
+
+    "I've successfully booked your accommodation at {hotel_name} in {city}. Your stay is scheduled from {start_date} to {end_date}, priced at {total_price}. Looking forward to your feedback!",
+
+    "Your reservation is confirmed! I've booked {hotel_name} for you in {city} from {start_date} to {end_date}. The total for your stay comes to {total_price}. Safe travels!",
+
+    "Excellent choice! I've secured your booking at {hotel_name}, {city}. You're confirmed from {start_date} to {end_date}, with a total price of {total_price}. Enjoy your stay!",
+
+    "Booking complete! You're all set for {hotel_name} in {city}. Your reservation runs from {start_date} to {end_date}, totaling {total_price}. Have a fantastic trip!",
+
+    "I'm pleased to confirm I've booked {hotel_name} for your stay in {city}. Your reservation is from {start_date} to {end_date}, and the total cost is {total_price}. Enjoy your visit!",
+
+    "Success! Your stay at {hotel_name}, {city} is confirmed. Check-in: {start_date}, Check-out: {end_date}. Total price: {total_price}. Wishing you a pleasant stay!",
+
+    "Booking confirmed at {hotel_name} in {city}! I've reserved your stay from {start_date} to {end_date}. The total for your reservation is {total_price}. Have a great time!",
+
+    "Good news! I've successfully booked {hotel_name} for your trip to {city}. Your stay is confirmed from {start_date} to {end_date}, with a total cost of {total_price}. Enjoy your vacation!"
+]

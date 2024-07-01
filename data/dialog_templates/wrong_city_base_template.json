@@ -1,0 +1,6 @@
+ [
+{"role":"user", "action":["USER_GREETING"]},
+ {"role":"assistant", "action":["AI_GREETING", "ASK_CITY"]},
+{"role":"user", "action":["ANSWER_CITY"]},
+ {"role":"assistant", "action":["REJECT_CITY"]}
+]

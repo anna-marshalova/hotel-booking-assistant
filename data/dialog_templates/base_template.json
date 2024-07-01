@@ -1,0 +1,13 @@
+[{"role":"user", "action":["USER_GREETING"]},
+ {"role":"assistant", "action":["AI_GREETING", "ASK_CITY"]},
+ {"role":"user", "action":["ANSWER_CITY"]},
+ {"role":"assistant", "action":["ASK_DATES"]},
+ {"role":"user", "action":["ANSWER_DATES"]},
+{"role":"assistant", "action":["ASK_NUM_GUESTS"]},
+ {"role":"user", "action":["ANSWER_NUM_GUESTS"]},
+ {"role":"assistant", "action":["SUGGEST_HOTEL", "DESCRIBE_HOTEL"]},
+ {"role":"user", "action":["REJECT_HOTEL"]},
+{"role":"assistant", "action":["SUGGEST_OTHER_HOTEL", "DESCRIBE_HOTEL"]},
+ {"role":"user", "action":["ACCEPT_HOTEL", "ASK_BOOKING"]},
+  {"role":"assistant", "action":["BOOK_HOTEL"]}
+]
