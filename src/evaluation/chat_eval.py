@@ -5,11 +5,10 @@ from tqdm.auto import tqdm
 
 from src.model.memory_utils import cleanup
 
+os.chdir('UniEval')
 from UniEval.metric.evaluator import get_evaluator
 from UniEval.utils import convert_to_json
-
-os.chdir(curdir)
-
+os.chdir('..')
 
 task = "dialogue"
 evaluator = get_evaluator(task)
