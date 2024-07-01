@@ -1,5 +1,5 @@
 from src.constants import MODEL
-from src.model import get_model
+from src.model.get_model import get_model
 
 
 class TextGenerationPipeline:
