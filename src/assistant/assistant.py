@@ -51,7 +51,7 @@ class Assistant:
             chat_history.append(user_turn)
             bot_messages.append(user_turn)
             slot_messages[-1]["content"] = get_slot_user_message(bot_messages[1:])
-            slot_response = respond(slot_messages, max_new_tokens=200, do_sample=False)
+            slot_response = respond(slot_messages, self.pipe, max_new_tokens=200, do_sample=False)
             slots = parse_slots(slot_response) or slots
             if show_slots:
                 print(slots)
@@ -59,7 +59,7 @@ class Assistant:
             bot_messages[0]["content"] = self.get_system_bot_message(
                 slots, hotels_in_city
             )
-            bot_message = respond(bot_messages, max_new_tokens=500, do_sample=False)
+            bot_message = respond(bot_messages, self.pipe, max_new_tokens=500, do_sample=False)
             print(bot_message)
             assistant_turn = {"role": "assistant", "content": bot_message}
             bot_messages.append(assistant_turn)
