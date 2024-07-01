@@ -21,11 +21,11 @@ def get_chat_responses(samples, pipe, batch_size=8):
         pb.update(batch_size)
         start = end
         end += batch_size
-    for prompt, output in zip(prompts, outputs):
+    for prompt, output, sample in zip(prompts, outputs, samples):
         prompt = pipe.tokenizer.decode(pipe.tokenizer(prompt)["input_ids"])
         response = {
             "role": "assistant",
             "content": clean_response(output["generated_text"].replace(prompt, "")),
         }
-        generated_samples.append(response)
+        generated_samples.append({'system':sample['system'], 'user':sample['user'], 'assistant':response})
     return generated_samples
