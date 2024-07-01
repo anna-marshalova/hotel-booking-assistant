@@ -9,6 +9,18 @@ from src.utils import load_json
 random.seed(RANDOM_SEED)
 
 
+def get_slot_assistant_message(slots):
+    json_template = "```\n{slots}\n```"
+    return json_template.format(slots=json.dumps(slots))
+
+
+def get_slot_user_message(history):
+    context_messages = []
+    for message in history:
+        context_messages.append(f'{message["role"].upper()}: {message["content"]}')
+    return "\n".join(context_messages)
+
+
 def get_date_status(today):
     date_template = "Today is {date}, {weekday}."
     return date_template.format(

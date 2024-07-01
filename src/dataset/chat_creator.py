@@ -1,5 +1,4 @@
 import datetime
-import json
 import random
 import re
 from collections import defaultdict
@@ -9,23 +8,13 @@ from src.constants import RANDOM_SEED
 from src.dataset.actions import get_action_dict
 from src.dataset.date_picking import DEFAULT_DATE_FORMAT, random_today
 from src.dataset.dialog_template_creator import DialogTemplateCreator
-from src.dataset.system_prompt_generator import SystemPromptGenerator
+from src.dataset.system_prompt_generator import (SystemPromptGenerator,
+                                                 get_slot_assistant_message,
+                                                 get_slot_user_message)
 from src.paths import *
-from src.utils import join_sents, load_json
+from src.utils import group_hotels_by_city, join_sents, load_json
 
 random.seed(RANDOM_SEED)
-
-
-def get_slot_assistant_message(slots):
-    json_template = "```\n{slots}\n```"
-    return json_template.format(slots=json.dumps(slots))
-
-
-def get_slot_user_message(history):
-    context_messages = []
-    for message in history:
-        context_messages.append(f'{message["role"].upper()}: {message["content"]}')
-    return "\n".join(context_messages)
 
 
 def get_total_price(hotel_info, slots):
@@ -63,13 +52,7 @@ class ChatCreator:
             HOTEL_DATA_PATH / "absent_cities_hotels.json"
         )
         self.hotels = load_json(HOTEL_DATA_PATH / f"{split}_hotels.json")
-        self.city_hotels = self.group_hotels_by_city()
-
-    def group_hotels_by_city(self):
-        city_hotels = defaultdict(list)
-        for hotel in self.hotels:
-            city_hotels[hotel["city"]].append(hotel)
-        return city_hotels
+        self.city_hotels = group_hotels_by_city(self.hotels)
 
     def get_hotel_info(self, wrong_city):
         if wrong_city:

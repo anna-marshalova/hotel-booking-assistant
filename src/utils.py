@@ -36,3 +36,10 @@ def join_sents(sents):
 
 def get_checkpoint_name(model_name, dataset_name):
     return f'{model_name.split("/")[-1]}-{dataset_name.split("/")[-1]}'
+
+
+def group_hotels_by_city(hotels):
+    city_hotels = defaultdict(list)
+    for hotel in hotels:
+        city_hotels[hotel["city"]].append(hotel)
+    return city_hotels

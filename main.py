@@ -1,4 +1,6 @@
-from src.model.inference import chat
+from src.assistant.assistant import Assistant
+from src.paths import HOTEL_DATA_PATH
 
 if __name__ == "__main__":
-    chat()
+    hotel_assistant = Assistant(HOTEL_DATA_PATH / "test_hotels.json")
+    hotel_assistant.run()
