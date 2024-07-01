@@ -4,7 +4,7 @@ import re
 from src.constants import RANDOM_SEED
 from src.dataset.date_picking import (get_stay_dates, get_user_date_dict,
                                       random_period)
-from src.paths import *
+from src.paths import ACTIONS_PATH
 from src.utils import load_json
 
 random.seed(RANDOM_SEED)

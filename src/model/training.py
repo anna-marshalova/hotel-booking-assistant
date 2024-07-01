@@ -7,7 +7,7 @@ from unsloth import FastLanguageModel, is_bfloat16_supported
 
 from src.constants import (BASELINE_MODEL, DATASET_NAME, MAX_SEQ_LENGTH,
                            RANDOM_SEED)
-from src.paths import *
+from src.paths import CONFIG_PATH, MODEL_PATH
 from src.utils import get_checkpoint_name, load_json
 
 

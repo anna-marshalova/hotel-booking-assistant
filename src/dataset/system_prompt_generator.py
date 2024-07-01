@@ -3,7 +3,7 @@ import random
 
 from src.constants import RANDOM_SEED
 from src.dataset.date_picking import DEFAULT_DATE_FORMAT
-from src.paths import *
+from src.paths import SYSTEM_PROMPTS_PATH
 from src.utils import load_json
 
 random.seed(RANDOM_SEED)

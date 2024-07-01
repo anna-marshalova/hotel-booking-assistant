@@ -2,7 +2,7 @@ import random
 from copy import deepcopy
 
 from src.constants import RANDOM_SEED
-from src.paths import *
+from src.paths import DIALOG_TEMPLATES_PATH
 from src.utils import load_json
 
 random.seed(RANDOM_SEED)

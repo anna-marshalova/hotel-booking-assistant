@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from unsloth import FastLanguageModel
 
 from src.constants import MAX_SEQ_LENGTH, MODEL
-from src.paths import *
+from src.paths import MODEL_PATH
 
 
 def get_model(model_name=MODEL):

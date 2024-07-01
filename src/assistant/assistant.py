@@ -1,6 +1,6 @@
 import datetime
 
-from paths import SYSTEM_PROMPTS_PATH
+from src.paths import SYSTEM_PROMPTS_PATH
 from src.dataset.system_prompt_generator import (get_availbale_hotels,
                                                  get_date_status,
                                                  get_slot_status,

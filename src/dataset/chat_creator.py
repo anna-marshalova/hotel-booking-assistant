@@ -11,7 +11,7 @@ from src.dataset.dialog_template_creator import DialogTemplateCreator
 from src.dataset.system_prompt_generator import (SystemPromptGenerator,
                                                  get_slot_assistant_message,
                                                  get_slot_user_message)
-from src.paths import *
+from src.paths import HOTEL_DATA_PATH
 from src.utils import group_hotels_by_city, join_sents, load_json
 
 random.seed(RANDOM_SEED)

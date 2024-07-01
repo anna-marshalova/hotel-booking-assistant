@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 from src.constants import DATASET_NAME, RANDOM_SEED
 from src.dataset.chat_creator import ChatCreator
-from src.paths import *
+from src.paths import DATA_PATH
 from src.utils import load_json
 
 DEFAULT_SYSTEM_PROMPT = "You are a friendly assistant."
