@@ -8,7 +8,7 @@ class TextGenerationPipeline:
             self.model = model
             self.tokenizer = tokenizer
         elif model_name:
-            model, tokenizer = get_model(model_name)
+            self.model, self.tokenizer = get_model(model_name)
         self.tokenizer.padding_side = "left"
 
     def batch_generate(self, texts, **kwargs):
