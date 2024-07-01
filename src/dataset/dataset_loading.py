@@ -20,7 +20,7 @@ def get_train_dataset():
     return dataset
 
 
-def get_test_dataset():
+def get_test_datasets():
     hf_dataset = load_dataset(DATASET_NAME)
     dataset = hf_dataset["test"]
     slot_test_dataset = dataset.filter(lambda x: x["source"] == "hotel-assistant-slot")

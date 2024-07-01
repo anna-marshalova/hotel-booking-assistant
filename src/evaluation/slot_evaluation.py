@@ -3,7 +3,7 @@ from collections import defaultdict
 from tqdm.auto import tqdm
 
 from src.constants import EMPTY_SLOTS
-from src.dataset.load_dataset import create_prompt
+from src.dataset.dataset_loading import create_prompt
 from src.model.inference import parse_slots
 from src.model.memory_utils import cleanup
 
