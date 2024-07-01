@@ -23,7 +23,7 @@ def respond(messages, pipe, **kwargs):
     return response
 
 
-def extract_response(response):
+def clean_response(response):
     return response.replace("<unk>", "").strip()
 
 
@@ -33,4 +33,4 @@ def parse_slots(response):
     try:
         return json.loads(slots[0])
     except:
-        return None
+        return default
