@@ -1,0 +1,9 @@
+datasets
+num2words
+pathlib
+pandas
+python-dotenv
+torch
+transformers
+trl
+unsloth[cu121-torch230] @ git+https://github.com/unslothai/unsloth.git
