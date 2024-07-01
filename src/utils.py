@@ -1,6 +1,6 @@
 import json
 import random
-
+from collections import defaultdict
 from src.constants import RANDOM_SEED
 
 random.seed(RANDOM_SEED)
