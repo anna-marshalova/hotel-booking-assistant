@@ -3,8 +3,8 @@ import os
 from dotenv import load_dotenv
 from unsloth import FastLanguageModel
 
-from src.paths import *
 from src.constants import MAX_SEQ_LENGTH, MODEL
+from src.paths import *
 
 
 def get_model(model_name=MODEL):
