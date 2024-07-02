@@ -2,17 +2,21 @@ import os
 
 import pandas as pd
 from tqdm.auto import tqdm
+from datasets import Dataset
 
 from src.model.memory_utils import cleanup
 
 from UniEval.metric.evaluator import get_evaluator
 from UniEval.utils import convert_to_json
 
+
 task = "dialogue"
 evaluator = get_evaluator(task)
 
 
 def evaluate_chats(samples, batch_size=256):
+    if isinstance(samples, Dataset):
+        samples = Dataset.from_pandas(pd.DataFrame(samples))
     eval_scores = []
     start = 0
     end = batch_size

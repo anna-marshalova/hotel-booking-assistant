@@ -59,7 +59,7 @@ def slot_confusion_matrix(true_slots, pred_slots):
     total = len(true_slots)
     for t, p in zip(true_slots, pred_slots):
         for slot, value in t.items():
-            if value == p.get(slot):
+            if value and value == p.get(slot):
                 tp[slot] += 1
             elif value == "" and p.get(slot, "") != "":
                 fp[slot] += 1
