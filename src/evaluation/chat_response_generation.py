@@ -1,6 +1,6 @@
 from tqdm.auto import tqdm
 
-from src.dataset.load_dataset import create_prompt
+from src.dataset.dataset_loading import create_prompt
 from src.model.inference import clean_response
 from src.model.memory_utils import cleanup
 
