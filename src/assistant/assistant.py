@@ -7,6 +7,7 @@ from src.dataset.system_prompt_generator import (get_availbale_hotels,
                                                  get_slot_user_message)
 from src.model.inference import parse_slots, respond
 from src.utils import group_hotels_by_city, load_json
+from src.constants import SLOT_TOKEN
 
 
 class Assistant:
@@ -29,7 +30,7 @@ class Assistant:
         sys_message = load_json(SYSTEM_PROMPTS_PATH / "inference_prompts.json")["slot"]
         date_status = get_date_status(self.today)
         slot_status = get_slot_status(slots)
-        return f"{sys_message}\n{date_status}\n{slot_status}"
+        return f"{SLOT_TOKEN}\n{sys_message}\n{date_status}\n{slot_status}"
 
     def run(self, show_slots=True):
         chat_history = []

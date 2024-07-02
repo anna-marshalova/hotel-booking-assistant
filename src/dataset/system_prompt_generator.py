@@ -1,7 +1,7 @@
 import json
 import random
 
-from src.constants import RANDOM_SEED
+from src.constants import RANDOM_SEED, SLOT_TOKEN
 from src.dataset.date_picking import DEFAULT_DATE_FORMAT
 from src.paths import SYSTEM_PROMPTS_PATH
 from src.utils import load_json
@@ -42,7 +42,6 @@ def get_availbale_hotels(slots, hotels_in_city):
 
 class SystemPromptGenerator:
     def __init__(self):
-        self.SLOT_TOKEN = "SLOT_EXTRACTION"
         self.slot_prompt_templates = load_json(
             SYSTEM_PROMPTS_PATH / "slot_system_prompts.json"
         )
@@ -58,7 +57,7 @@ class SystemPromptGenerator:
         return f"{sys_message}\n{date_status}\n{slot_status}\n{availbale_hotels}"
 
     def get_system_slot_message(self, today, slots):
-        sys_message = f"{self.SLOT_TOKEN}\n{random.choice(self.slot_prompt_templates)}"
+        sys_message = f"{SLOT_TOKEN}\n{random.choice(self.slot_prompt_templates)}"
         date_status = get_date_status(today)
         slot_status = get_slot_status(slots)
         return f"{sys_message}\n{date_status}\n{slot_status}"

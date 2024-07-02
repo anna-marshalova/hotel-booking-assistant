@@ -6,6 +6,7 @@ DATASET_PATH = f"M-A-E/{DATASET_NAME}"
 CHAT_DATASET_NAME = "hotel-booking-assistant-raw-chats"
 MAX_SEQ_LENGTH = 2048
 MODEL = "M-A-E/Llama-2-7b-chat-hf-hotel-booking-assistant"
+SLOT_TOKEN = "SLOT_EXTRACTION"
 
 
 EMPTY_SLOTS = {
