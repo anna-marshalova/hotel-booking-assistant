@@ -24,5 +24,5 @@ pip install -r requirements.txt
 
 Run main.py
 ```bash
-python -m main.py
+python main.py
 ```
