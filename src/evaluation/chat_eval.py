@@ -1,14 +1,10 @@
-import os
-
 import pandas as pd
-from tqdm.auto import tqdm
 from datasets import Dataset
-
-from src.model.memory_utils import cleanup
-
+from tqdm.auto import tqdm
 from UniEval.metric.evaluator import get_evaluator
 from UniEval.utils import convert_to_json
 
+from src.model.memory_utils import cleanup
 
 task = "dialogue"
 evaluator = get_evaluator(task)

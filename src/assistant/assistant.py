@@ -1,13 +1,15 @@
 import datetime
 
-from src.paths import SYSTEM_PROMPTS_PATH
+from unsloth import FastLanguageModel
+
+from src.constants import SLOT_TOKEN
 from src.dataset.system_prompt_generator import (get_availbale_hotels,
                                                  get_date_status,
                                                  get_slot_status,
                                                  get_slot_user_message)
-from src.model.inference import parse_slots, respond
-from src.utils import group_hotels_by_city, load_json
-from src.constants import SLOT_TOKEN
+from src.model.inference import respond
+from src.paths import SYSTEM_PROMPTS_PATH
+from src.utils import group_hotels_by_city, load_json, parse_slots
 
 
 class Assistant:
@@ -33,6 +35,7 @@ class Assistant:
         return f"{SLOT_TOKEN}\n{sys_message}\n{date_status}\n{slot_status}"
 
     def run(self, show_slots=True):
+        FastLanguageModel.for_inference(self.pipe.model)
         chat_history = []
         slots = {
             "start_date": "",
@@ -52,7 +55,9 @@ class Assistant:
             chat_history.append(user_turn)
             bot_messages.append(user_turn)
             slot_messages[-1]["content"] = get_slot_user_message(bot_messages[1:])
-            slot_response = respond(slot_messages, self.pipe, max_new_tokens=200, do_sample=False)
+            slot_response = respond(
+                slot_messages, self.pipe, max_new_tokens=200, do_sample=False
+            )
             slots = parse_slots(slot_response) or slots
             if show_slots:
                 print(slots)
@@ -60,7 +65,9 @@ class Assistant:
             bot_messages[0]["content"] = self.get_system_bot_message(
                 slots, hotels_in_city
             )
-            bot_message = respond(bot_messages, self.pipe, max_new_tokens=500, do_sample=False)
+            bot_message = respond(
+                bot_messages, self.pipe, max_new_tokens=500, do_sample=False
+            )
             print(bot_message)
             assistant_turn = {"role": "assistant", "content": bot_message}
             bot_messages.append(assistant_turn)

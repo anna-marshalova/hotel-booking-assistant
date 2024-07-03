@@ -1,11 +1,12 @@
 from collections import defaultdict
 
+import pandas as pd
 from tqdm.auto import tqdm
 
 from src.constants import EMPTY_SLOTS
 from src.dataset.dataset_loading import create_prompt
-from src.model.inference import parse_slots
 from src.model.memory_utils import cleanup
+from src.utils import parse_slots
 
 
 def eval_slot_filling(samples, pipe, batch_size=16):
@@ -37,11 +38,6 @@ def eval_slot_filling(samples, pipe, batch_size=16):
     return true_slots, pred_slots, results
 
 
-from collections import defaultdict
-
-import pandas as pd
-
-
 def slot_accuracy(true_slots, pred_slots):
     correct = defaultdict(int)
     total = len(true_slots)
@@ -56,7 +52,6 @@ def slot_confusion_matrix(true_slots, pred_slots):
     tp = {slot: 0 for slot in EMPTY_SLOTS}
     fp = {slot: 0 for slot in EMPTY_SLOTS}
     fn = {slot: 0 for slot in EMPTY_SLOTS}
-    total = len(true_slots)
     for t, p in zip(true_slots, pred_slots):
         for slot, value in t.items():
             if value and value == p.get(slot):

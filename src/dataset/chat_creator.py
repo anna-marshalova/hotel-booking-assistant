@@ -1,7 +1,6 @@
 import datetime
 import random
 import re
-from collections import defaultdict
 from copy import deepcopy
 
 from src.constants import RANDOM_SEED

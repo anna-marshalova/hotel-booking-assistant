@@ -83,7 +83,7 @@ class DialogTemplateCreator:
                 and (i + 2 < len(template))
                 and ("SUGGEST" not in str(template[i + 1]["action"]))
             ):
-                new_template.append(merge_3_messages(*template[i : i + 3]))
+                new_template.append(merge_3_messages(*template[i:i + 3]))
                 i += 3
             else:
                 new_template.append(template[i])

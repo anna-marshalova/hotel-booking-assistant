@@ -2,6 +2,7 @@ from datasets import load_dataset
 
 from src.constants import DATASET_PATH
 
+
 def create_prompt(sample, tokenizer, add_assistant=False):
     messages = [sample["system"], sample["user"]]
     if add_assistant:

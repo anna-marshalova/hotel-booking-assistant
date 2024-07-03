@@ -1,6 +1,9 @@
 import json
 import random
+import re
 from collections import defaultdict
+from string import punctuation
+
 from src.constants import RANDOM_SEED
 
 random.seed(RANDOM_SEED)
@@ -10,9 +13,6 @@ def load_json(path):
     with open(path) as json_file:
         data = json.load(json_file)
     return data
-
-
-from string import punctuation
 
 
 def join_sents(sents):
@@ -43,3 +43,16 @@ def group_hotels_by_city(hotels):
     for hotel in hotels:
         city_hotels[hotel["city"]].append(hotel)
     return city_hotels
+
+
+def clean_response(response):
+    return response.replace("<unk>", "").strip()
+
+
+def parse_slots(response):
+    default = None
+    slots = re.findall("(?<=```\n).*?(?=\n```)", response)
+    try:
+        return json.loads(slots[0])
+    except:
+        return default
